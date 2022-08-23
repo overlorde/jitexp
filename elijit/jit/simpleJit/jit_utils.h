@@ -5,30 +5,33 @@
 #include <cstdint>
 #include <vector>
 
-
-class JitProgram{
+class JitProgram
+{
 public:
-    JitProgram(const std::vector<uint8_t>& code);
-    ~JitProgram();
+	JitProgram(const std::vector<uint8_t> &code);
+	~JitProgram();
 
-    // Getting the pointer to program memory. This pointer is valid only as long
-    // the JitProgram object is alive.
+	// Getting the pointer to program memory. This pointer is valid only as long
+	// the JitProgram object is alive.
 
-    void* program_memory(){
-	return program_memory_;
-    }
+	void *program_memory()
+	{
+		return program_memory_;
+	}
 
-    size_t program_size(){
-	return program_size_;
-    }
+	size_t program_size()
+	{
+		return program_size_;
+	}
 
 private:
-    void* program_memory_ = nullptr;
-    size_t programZ_size_ = 0;
+	void *program_memory_ = nullptr;
+	size_t program_size_ = 0;
 };
 
-class CodeEmitter{
-    public:
+class CodeEmitter
+{
+public:
 	CodeEmitter() = default;
 
 	void EmitByte(uint8_t v);
@@ -48,16 +51,17 @@ class CodeEmitter{
 
 	void ReplaceUint32AtOffset(size_t offset, uint32_t v);
 
-	size_t size() const{
-	    return code_.size();
+	size_t size() const
+	{
+		return code_.size();
 	}
 
-
-	const std::vector<uint8_t>& code() const{
-	    return code_;
+	const std::vector<uint8_t> &code() const
+	{
+		return code_;
 	}
 
-    private:
+private:
 	std::vector<uint8_t> code_;
 };
 
@@ -70,6 +74,4 @@ class CodeEmitter{
 
 uint32_t compute_relative_32bit_offset(size_t jump_from, size_t jump_to);
 
-
 #endif
-
