@@ -1,7 +1,0 @@
-mail: Charith Mendis
-
-example:
-
-data-driven techniques to develop novel compiler cost models -- Ithemal
-
-learn end-to-end compiler opZZtimization policies (vemal) that out perform hand-crafted tools.
